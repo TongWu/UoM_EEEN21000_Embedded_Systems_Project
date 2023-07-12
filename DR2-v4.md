@@ -1,15 +1,15 @@
 ![](https://images.wu.engineer/images/2023/07/11/e14bcc9b09332ab5f6771ce87a3a6e62.png)
 
-# Embedded Systems Project 2020-21
+Embedded Systems Project 2020-21
 
-> DESIGN REPORT \#2
->
-> Title: Buggy design
->
-> Group Number: 37
+DESIGN REPORT \#2
+
+Title: Buggy design
+
+Group Number: 37
 
 | Group members:     | ID Number | I confirm that this is the group’s own work. |
-| ------------------ | --------- | -------------------------------------------- |
+|--------------------|-----------|----------------------------------------------|
 | Marton Gonczy      | 10541775  | ☒                                            |
 | Cavan Grant        | 10513220  | ☒                                            |
 | ZhiYuan Zhu        | 10783135  | ☒                                            |
@@ -20,6 +20,26 @@
 Tutor: Wuqiang Yang
 
 Date: 10/12/2020
+
+Contents
+
+[1. Introduction](#introduction)
+
+2\. Software
+
+3\. Line Sensor Characterisation
+
+4\. Circuit diagram for proposed line sensors
+
+5\. Non-line sensors
+
+6\. Control
+
+7\. Hardware overview
+
+8\. Summary
+
+9\. References
 
 # Introduction
 
@@ -150,70 +170,70 @@ In the experiment, the TCRT5000 - LED / Opto-transistor and LED / LDR sensors ar
 
 Table 2
 
-| Height (cm) | Voltage (V) |
-| ----------- | ----------- |
-| 0           | 4.2         |
-| 0.1         | 3.9         |
-| 0.2         | 0.3         |
-| 0.3         | 0.3         |
-| 0.4         | 0.3         |
-| 0.5         | 0.6         |
+| Height (cm) | Voltage (V)  |
+|-------------|--------------|
+|  0          | 4.2          |
+| 0.1         | 3.9          |
+| 0.2         | 0.3          |
+| 0.3         | 0.3          |
+| 0.4         | 0.3          |
+| 0.5         | 0.6          |
 
 In Experiment 1 (Table 2), the relation between the sensitivity of TCRT5000 and height is obtained. Tcrt5000 - LED / Opto-transistor are aligned along the white line (normal buggy configuration). Table 1 showed the variation of voltage with the change of optical sensor height. The sensor was slowly raised from 0 cm to 1 cm, and the voltage was recorded at every 0.1 cm. It can be seen from the chart that the voltage drops slowly from the beginning. When the height reaches 0.2 cm, the voltage drops suddenly to 0.3 V, and maintains at 0.3V until the height reaches 0.5 cm. From 0.5 cm, the voltage increases with the rise of height. The final value is 3.1 V when the height reaches 1cm.
 
-|       | Gap (mm) |      |      |      |      |
-| ----- | -------- | ---- | ---- | ---- | ---- |
-| x(cm) | 0.5      | 5    | 10   | 15   | 19   |
-| -3    | 4.7      | 4.7  | 4.9  | 4.9  | 5    |
-| -2.5  | 4.8      | 4.7  | 4.9  | 4.9  | 5    |
-| -2    | 4.7      | 4.7  | 4.9  | 4.9  | 5    |
-| -1.5  | 4.7      | 4.7  | 4.8  | 4.8  | 5    |
-| -1    | 4.7      | 3.4  | 4.1  | 4.5  | 4.7  |
-| -0.75 | 2.7      | 1.2  | 3.4  | 4.3  | 4.5  |
+|       |  Gap (mm)   |     |     |     |     |
+|-------|-------------|-----|-----|-----|-----|
+| x(cm) | 0.5         | 5   | 10  | 15  | 19  |
+| -3    | 4.7         | 4.7 | 4.9 | 4.9 | 5   |
+| -2.5  | 4.8         | 4.7 | 4.9 | 4.9 | 5   |
+| -2    | 4.7         | 4.7 | 4.9 | 4.9 | 5   |
+| -1.5  | 4.7         | 4.7 | 4.8 | 4.8 | 5   |
+| -1    | 4.7         | 3.4 | 4.1 | 4.5 | 4.7 |
+| -0.75 | 2.7         | 1.2 | 3.4 | 4.3 | 4.5 |
 
-|       | Gap (mm) |      |      |      |      |
-| ----- | -------- | ---- | ---- | ---- | ---- |
-| x(cm) | 0.5      | 5    | 10   | 15   | 19   |
-| -3    | 4.7      | 4.7  | 4.9  | 4.9  | 5    |
-| -2.5  | 4.7      | 4.7  | 4.9  | 4.9  | 5    |
-| -2    | 4.7      | 4.7  | 4.9  | 4.9  | 5    |
-| -1.5  | 4.7      | 4.7  | 4.7  | 4.8  | 4.9  |
-| -1    | 4.3      | 3.5  | 4.3  | 4.6  | 4.7  |
-| -0.75 | 2.3      | 2    | 3.6  | 4.3  | 4.6  |
+|       | Gap (mm) |     |     |     |     |
+|-------|----------|-----|-----|-----|-----|
+| x(cm) | 0.5      | 5   | 10  | 15  | 19  |
+| -3    | 4.7      | 4.7 | 4.9 | 4.9 | 5   |
+| -2.5  | 4.7      | 4.7 | 4.9 | 4.9 | 5   |
+| -2    | 4.7      | 4.7 | 4.9 | 4.9 | 5   |
+| -1.5  | 4.7      | 4.7 | 4.7 | 4.8 | 4.9 |
+|  -1   | 4.3      | 3.5 | 4.3 | 4.6 | 4.7 |
+| -0.75 | 2.3      | 2   | 3.6 | 4.3 | 4.6 |
 
 In the second group of experiments (Table3) (Table4), the sensors were placed in different orientations, and moved across the white line at different heights to observe the sensitivity of TCRT5000. From the table comparison, it can be seen that the orientation of the sensors has very little to no effect on the sensitivity, and the two groups of values are similar. When the offline height of sensor is 5 mm, the discrepancy between the values is the largest, in other words, it is the most sensitive. However, when this value is 19 mm, the change of voltage is the minimum.
 
 Table 5
 
-|       | Gap (mm) |      |      |      |      |
-| ----- | -------- | ---- | ---- | ---- | ---- |
-| x(cm) | 1        | 6    | 11   | 16   | 21   |
-| -3    | 2        | 2    | 2.1  | 2.2  | 2.2  |
-| -2.5  | 2        | 2    | 2    | 2.2  | 2.2  |
-| -2    | 2        | 2    | 2.1  | 2.1  | 2.2  |
-| -1.5  | 1.9      | 2    | 2.1  | 2.2  | 2.2  |
-| -1    | 1.6      | 1.8  | 2    | 2    | 2.1  |
-| -0.75 | 1.32     | 1.5  | 2    | 2    | 2    |
+|       |  Gap (mm) |     |     |     |     |
+|-------|-----------|-----|-----|-----|-----|
+| x(cm) | 1         | 6   | 11  | 16  | 21  |
+| -3    | 2         | 2   | 2.1 | 2.2 | 2.2 |
+| -2.5  | 2         | 2   | 2   | 2.2 | 2.2 |
+| -2    | 2         | 2   | 2.1 | 2.1 | 2.2 |
+| -1.5  | 1.9       | 2   | 2.1 | 2.2 | 2.2 |
+| -1    | 1.6       | 1.8 | 2   | 2   | 2.1 |
+| -0.75 | 1.32      | 1.5 | 2   | 2   | 2   |
 
 Table 5 shows the values of Experiment 3 which is repeating Experiment 2 with another LDR (VT90N2), thus comparing the sensitivity of this sensor with TCRT5000 (Table 3 and 4). The sensor is aligned along the white line (normal buggy configuration). It can be seen from the table that the smaller the distance from the surface is the more sensitive the sensors are. But the magnitude of the change is not as dramatic as that of TCRT5000. It can be concluded that the performance of TCRT5000 is better than that of VT90N2.
 
 Table 6 [1]
 
-| Detector               | BPW17N     | TEKT5400S  | TCRT5000 |      |
-| ---------------------- | ---------- | ---------- | -------- | ---- |
-| Peak current(mA)       | 100        | 200        | 100      |      |
-| Suggested current(mA)  | 50         | 100        | /        |      |
-| Optimal wavelength(nm) | 825        | 920        | /        |      |
-| Spectral range         | 620 to 960 | 850 to 980 | /        |      |
-| Half angle(deg)        | ± 12       | ± 37       | /        |      |
-| Turn-on time (μs)      | 4.8        | 6          | /        |      |
-| Dark current(nA)       | Max        | 200        | 100      | 200  |
-|                        | Typ.       | 1          | 1        | 10   |
+| Detector               | BPW17N     | TEKT5400S  | TCRT5000 |     |
+|------------------------|------------|------------|----------|-----|
+| Peak current(mA)       | 100        | 200        | 100      |     |
+| Suggested current(mA)  | 50         | 100        | /        |     |
+| Optimal wavelength(nm) | 825        | 920        | /        |     |
+| Spectral range         | 620 to 960 | 850 to 980 | /        |     |
+| Half angle(deg)        | ± 12       | ± 37       | /        |     |
+| Turn-on time (μs)      | 4.8        | 6          | /        |     |
+| Dark current(nA)       | Max        | 200        | 100      | 200 |
+|                        | Typ.       | 1          | 1        | 10  |
 
 Table 7 [1]
 
 | \`Emitting Diode/LED lamp | Suggested forward current(mA) | Radiant power(mW) | Peak wavelength(nm) | Half angle(deg) | Rise time(ns) |
-| ------------------------- | ----------------------------- | ----------------- | ------------------- | --------------- | ------------- |
+|---------------------------|-------------------------------|-------------------|---------------------|-----------------|---------------|
 | OVL-5521                  | 20                            | /                 | /                   | ±15             | /             |
 | SFH203P                   | /                             | /                 | 850                 | ±75             | 5             |
 | SFH203PFA                 | /                             | /                 | 900                 | ±75             | 5             |
@@ -322,10 +342,10 @@ The proportional controller will let the Buggy correct itself by a proportional 
 
 Table 8
 
-|              | Pros                                                  | Cons                                                         |
-| ------------ | ----------------------------------------------------- | ------------------------------------------------------------ |
+|              | Pros                                                  | Cons                                                              |
+|--------------|-------------------------------------------------------|-------------------------------------------------------------------|
 | Bang-bang    | Easy to achieve Fast to execute                       | Need a long time to settle down Always shaking with a given angle |
-| Proportional | Correct the deviation dynamically Fast to settle down | Need more compute                                            |
+| Proportional | Correct the deviation dynamically Fast to settle down | Need more compute                                                 |
 
 **Things to control**
 
@@ -359,12 +379,12 @@ There are different combinations for PID controllers. Pros and Cons of these con
 
 Table 9
 
-|      | Pros                                       | Cons                                                         |
-| ---- | ------------------------------------------ | ------------------------------------------------------------ |
-| P    | Easy to execute                            | Need a long time to settle down May have a steady-state error |
-| PD   | Response fast                              | May have a steady-state error                                |
-| PI   | No steady-state error                      | Need a long time to settle down                              |
-| PID  | No steady-state error Stable Response fast |                                                              |
+|     | Pros                                       | Cons                                                          |
+|-----|--------------------------------------------|---------------------------------------------------------------|
+| P   | Easy to execute                            | Need a long time to settle down May have a steady-state error |
+| PD  | Response fast                              | May have a steady-state error                                 |
+| PI  | No steady-state error                      | Need a long time to settle down                               |
+| PID | No steady-state error Stable Response fast |                                                               |
 
 In order to get a precise and stable system, the proportional controller can only solve a part of control problems. Add the integral and derivative part to the controller are essential. PID control feedback system can have precise and stable control. Also, it can smooth the Buggy and correct the steady-state error.
 
